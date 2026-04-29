@@ -1,0 +1,66 @@
+<div class="applications-container">
+  <div class="applications-header">
+    <h1 class="applications-title">Application Management</h1>
+    <button class="btn btn-primary btn-new" (click)="onNewApplication()">
+      + New Application
+    </button>
+  </div>
+
+  @if (applicationService.applicationsList().length === 0) {
+    <div class="no-applications">
+      <p>No applications found. Click "New Application" to create one.</p>
+    </div>
+  } @else {
+    <div class="applications-grid">
+      @for (app of applicationService.applicationsList(); track app.id) {
+        <div class="application-card">
+          <div class="card-header">
+            <h2 class="card-title">{{ app.applicationName }}</h2>
+            <div class="card-actions">
+              <button class="btn-icon btn-edit" (click)="onEdit(app)" title="Edit application">
+                <span>✎</span>
+              </button>
+              <button class="btn-icon btn-delete" (click)="onDeleteClick(app.id)" title="Delete application">
+                <span>🗑</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Gear ID:</span>
+              <span class="info-value">{{ app.gearId }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Subgroup:</span>
+              <span class="info-value">
+                <span class="badge">{{ app.subgroup }}</span>
+              </span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Owner:</span>
+              <span class="info-value">{{ app.owner }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Lead:</span>
+              <span class="info-value">{{ app.lead }}</span>
+            </div>
+          </div>
+
+          @if (showDeleteConfirm() === app.id) {
+            <div class="delete-modal-overlay" (click)="onCancelDelete()">
+              <div class="delete-modal" (click)="$event.stopPropagation()">
+                <h3>Confirm Delete</h3>
+                <p>Are you sure you want to delete "{{ app.applicationName }}"?</p>
+                <div class="modal-actions">
+                  <button class="btn btn-danger" (click)="onConfirmDelete(app.id)">Delete</button>
+                  <button class="btn btn-secondary" (click)="onCancelDelete()">Cancel</button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

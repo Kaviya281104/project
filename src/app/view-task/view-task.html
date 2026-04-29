@@ -1,0 +1,74 @@
+<div class="view-tasks-page">
+  <div class="tasks-header">
+    <div>
+      <h1 class="tasks-title">Task Management</h1>
+      <p class="tasks-subtitle">Browse task cards with the same styling and layout as Application Management.</p>
+    </div>
+    <button class="btn btn-primary btn-new" (click)="onCreateTask()">+ New Task</button>
+  </div>
+
+  @if (taskService.tasksList().length === 0) {
+    <div class="no-tasks">
+      <p>No tasks found. Click "New Task" to create one.</p>
+    </div>
+  } @else {
+    <div class="tasks-grid">
+      @for (task of taskService.tasksList(); track task.id) {
+        <div class="task-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">{{ task.task }}</h2>
+              <p class="card-subtitle">{{ task.type }} • {{ task.status }} • {{ task.applicationCategory }}</p>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Assigned To:</span>
+              <span class="info-value">{{ task.assignedTo }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Assigned By:</span>
+              <span class="info-value">{{ task.assignedBy }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Lead:</span>
+              <span class="info-value">{{ task.lead }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Jira ID:</span>
+              <span class="info-value">{{ task.assignedJiraId }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Environment:</span>
+              <span class="info-value">{{ task.environment }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Start / End:</span>
+              <span class="info-value">{{ task.startDate }} → {{ task.endDate }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Estimated:</span>
+              <span class="info-value">{{ task.estimatedHours }}h / {{ task.estimatedWorkingHours }}h</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Completion:</span>
+              <span class="info-value">{{ task.estimatedCompletionDate }}</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="info-row">
+              <span class="info-label">Milestones:</span>
+              <span class="info-value">{{ task.milestones || 'Not defined' }}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Change Request:</span>
+              <span class="info-value">{{ task.changeRequestNumber }}</span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

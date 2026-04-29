@@ -1,0 +1,83 @@
+<div class="dashboard-page">
+  <header class="dashboard-toolbar">
+    <div class="toolbar-left">
+      <span class="dashboard-title">Task Report Status</span>
+    </div>
+ 
+    <div class="toolbar-center">
+      <div class="search-field toolbar-search">
+        <input type="text" placeholder="Search reports, tasks, employees..." />
+        <span class="search-icon material-icons">search</span>
+      </div>
+    </div>
+ 
+    <div class="toolbar-right">
+      <button class="icon-button" aria-label="Notifications">
+        <span class="material-icons">notifications</span>
+        <span class="icon-badge">3</span>
+      </button>
+      <button class="profile-pills" aria-label="Admin menu">
+        <span class="profile-avatar">A</span>
+        <div class="profile-info">
+          <span class="profile-name">Admin</span>
+          <span class="profile-role">Project lead</span>
+        </div>
+        <span class="dropdown-icon material-icons">arrow_drop_down</span>
+      </button>
+    </div>
+  </header>
+ 
+  <section class="dashboard-card-wrap">
+    <div class="dashboard-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back to the project tracking system</p>
+      </div>
+    </div>
+ 
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-icon">A</div>
+          <div>
+            <h2 class="card-title">Applications</h2>
+            <p class="card-subtitle">Review and process applications</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="primary-button" routerLink="/application">Application Management</button>
+          <!--<button class="secondary-button" routerLink="/applications">View Applications</button>-->
+        </div>
+      </div>
+ 
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-icon">T</div>
+          <div>
+            <h2 class="card-title">Tasks</h2>
+            <p class="card-subtitle">Track and manage tasks</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="primary-button" routerLink="/task">Task Management</button>
+          <!--<button class="secondary-button" routerLink="/tasks">View Tasks</button>-->
+        </div>
+      </div>
+ 
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-icon">R</div>
+          <div>
+            <h2 class="card-title">Reports</h2>
+            <p class="card-subtitle">Generate and view reports</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="primary-button" routerLink="/report">Generate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+ 
+ 

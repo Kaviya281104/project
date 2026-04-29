@@ -1,0 +1,200 @@
+<div class="task-form-page">
+  <div class="task-form-card">
+    <div class="task-form-header">
+      <h1>Create Task</h1>
+      <p>Fill in the details to add a new task.</p>
+    </div>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Application Category *</span>
+          <select formControlName="applicationCategory" class="field-input">
+            <option value="">Select category</option>
+            @for (category of applicationCategories; track category) {
+            <option [value]="category">{{ category }}</option>
+            }
+          </select>
+          @if (isInvalid('applicationCategory')) {
+          <span class="field-error">Application category is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Type *</span>
+          <select formControlName="type" class="field-input">
+            <option value="">Select type</option>
+            @for (taskType of taskTypes; track taskType) {
+            <option [value]="taskType">{{ taskType }}</option>
+            }
+          </select>
+          @if (isInvalid('type')) {
+          <span class="field-error">Task type is required.</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Lead *</span>
+          <input formControlName="lead" type="text" class="field-input" placeholder="Enter lead" />
+          @if (isInvalid('lead')) {
+          <span class="field-error">Lead is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Story *</span>
+          <input formControlName="Story Task" type="text" class="field-input" placeholder="Enter story" />
+          @if (isInvalid('story')) {
+          <span class="field-error">Story is required.</span>
+          }
+        </label>
+      </div>
+
+      <!--<div class="grid-two">
+        <label class="field-group">
+          <span>Task *</span>
+          <input formControlName="task" type="text" class="field-input" placeholder="Enter task" />
+          @if (isInvalid('task')) {
+          <span class="field-error">Task is required.</span>
+          }
+        </label>
+        </div>-->
+
+        <label class="field-group">
+          <span>Description *</span>
+          <textarea formControlName="description" rows="3" class="field-input" placeholder="Enter description"></textarea>
+          @if (isInvalid('description')) {
+          <span class="field-error">Description is required.</span>
+          }
+        </label>
+      
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Assigned By *</span>
+          <input formControlName="assignedBy" type="text" class="field-input" placeholder="Enter assigned by" />
+          @if (isInvalid('assignedBy')) {
+          <span class="field-error">Assigned by is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Assigned To *</span>
+          <input formControlName="assignedTo" type="text" class="field-input" placeholder="Enter assigned to" />
+          @if (isInvalid('assignedTo')) {
+          <span class="field-error">Assigned to is required.</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Jira ID *</span>
+          <input formControlName="assignedJiraId" type="text" class="field-input" placeholder="Enter JIRA ID" />
+          @if (isInvalid('assignedJiraId')) {
+          <span class="field-error">JIRA ID is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Environment *</span>
+          <select formControlName="environment" class="field-input">
+            <option value="">Select environment</option>
+            @for (environment of environments; track environment) {
+            <option [value]="environment">{{ environment }}</option>
+            }
+          </select>
+          @if (isInvalid('environment')) {
+          <span class="field-error">Environment is required.</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Status *</span>
+          <select formControlName="status" class="field-input">
+            <option value="">Select status</option>
+            @for (status of statuses; track status) {
+            <option [value]="status">{{ status }}</option>
+            }
+          </select>
+          @if (isInvalid('status')) {
+          <span class="field-error">Status is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Start Date *</span>
+          <input formControlName="startDate" type="date" class="field-input" />
+          @if (isInvalid('startDate')) {
+          <span class="field-error">Start date is required.</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>End Date *</span>
+          <input formControlName="endDate" type="date" class="field-input" />
+          @if (isInvalid('endDate')) {
+          <span class="field-error">End date is required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Estimated Hours *</span>
+          <input formControlName="estimatedHours" type="number" class="field-input" min="1" placeholder="Hours" />
+          @if (isInvalid('estimatedHours')) {
+          <span class="field-error">Estimated hours are required.</span>
+          }
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Estimated Working Hours *</span>
+          <input formControlName="estimatedWorkingHours" type="number" class="field-input" min="1" placeholder="Working hours" />
+          @if (isInvalid('estimatedWorkingHours')) {
+          <span class="field-error">Estimated working hours are required.</span>
+          }
+        </label>
+
+        <label class="field-group">
+          <span>Comments</span>
+          <textarea formControlName="comments" rows="3" class="field-input" placeholder="Add comments"></textarea>
+        </label>
+      </div>
+
+      <div class="grid-two">
+        <label class="field-group">
+          <span>Milestones</span>
+          <input formControlName="milestones" type="text" class="field-input" placeholder="Enter milestones" />
+        </label>
+
+        <label class="field-group">
+          <span>Estimated Completion Date *</span>
+          <input formControlName="estimatedCompletionDate" type="date" class="field-input" />
+          @if (isInvalid('estimatedCompletionDate')) {
+          <span class="field-error">Completion date is required.</span>
+          }
+        </label>
+      </div>
+
+      <label class="field-group">
+        <span>Change Request Number *</span>
+        <input formControlName="changeRequestNumber" type="text" class="field-input" placeholder="Enter change request number" />
+        @if (isInvalid('changeRequestNumber')) {
+        <span class="field-error">Change request number is required.</span>
+        }
+      </label>
+
+      <div class="action-row">
+        <button type="button" class="btn btn-secondary" (click)="generateTaskWithAI()">AI Generate</button>
+        <button type="submit" class="btn btn-primary">Save Task</button>
+      </div>
+    </form>
+  </div>
+</div>

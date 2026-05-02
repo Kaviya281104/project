@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
- 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-employee-dashboard',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css'],
+  templateUrl: './employee-dashboard.html',
+  styleUrl: './employee-dashboard.css',
 })
-export class Dashboard {
+export class EmployeeDashboard {
+
   constructor(private router: Router) {}
  
   goToTasks() {
@@ -19,14 +19,14 @@ export class Dashboard {
   logout() {
     this.router.navigate(['/login']);
   }
-    // Inside your export class EmployeeDashboardComponent
+   // Inside your export class EmployeeDashboardComponent
 isDropdownOpen = false;
 
 toggleDropdown() {
   this.isDropdownOpen = !this.isDropdownOpen;
 }
 
- 
+
   viewTasks() {
     this.router.navigate(['/tasks']);
   }
@@ -35,5 +35,3 @@ toggleDropdown() {
     this.router.navigate(['/applications']);
   }
 }
- 
- 

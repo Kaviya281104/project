@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { Login } from './login/login';
 import { Dashboard } from './dashboard/dashboard';
 import { EmployeeComponent } from './employee/employee';
+import { EmployeeDashboard } from './employee-dashboard/employee-dashboard';
 import { ApplicationComponent } from './application/application';
 import { CreateApplicationComponent } from './create-application/create-application';
 import { ViewApplication } from './view-application/view-application';
@@ -19,7 +20,7 @@ export const routes: Routes = [
  
   { path: 'login', component: Login },
   { path: 'dashboard', component: Dashboard },
- 
+ { path: 'employee-dashboard',component :EmployeeDashboard},
   { path: 'employee', component: EmployeeComponent },
   { path: 'application', component: ApplicationComponent },
   { path: 'create-application', component: CreateApplicationComponent },

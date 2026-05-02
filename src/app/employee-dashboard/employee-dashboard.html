@@ -1,0 +1,86 @@
+<div class="dashboard-page">
+  <header class="dashboard-toolbar">
+    <div class="toolbar-left">
+      <span class="dashboard-title">Task Report Status</span>
+    </div>
+ 
+    <div class="toolbar-center">
+      <div class="search-field toolbar-search">
+        <input type="text" placeholder="Search reports, tasks, employees..." />
+        <span class="search-icon material-icons">search</span>
+      </div>
+    </div>
+ <div class="toolbar-right">
+  <!-- Notifications Icon -->
+  <button class="icon-button">
+    <span class="material-icons">notifications</span>
+    <span class="icon-badge">3</span>
+  </button>
+
+  <!-- Profile Dropdown Container -->
+  <div class="profile-dropdown-container">
+    <button class="profile-pills" (click)="toggleDropdown()">
+      <!-- Circle with initials EU -->
+      <span class="profile-avatar">EU</span> 
+      
+      <div class="profile-info">
+        <span class="profile-name">Employee User</span>
+        <span class="profile-role">Employee</span>
+      </div>
+      <span class="material-icons">arrow_drop_down</span>
+    </button>
+
+    <!-- The actual dropdown menu -->
+    <div class="dropdown-menu" *ngIf="isDropdownOpen">
+      <div class="dropdown-item" (click)="logout()">
+        <span class="material-icons">logout</span>
+        <span>Logout</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </header>
+ 
+  <section class="dashboard-card-wrap">
+    <div class="dashboard-header">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back to the project tracking system</p>
+      </div>
+    </div>
+ 
+    <div class="dashboard-grid">
+      
+ 
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-icon">T</div>
+          <div>
+            <h2 class="card-title">Tasks</h2>
+            <p class="card-subtitle">Track and manage tasks</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="primary-button" routerLink="/task">Task Management</button>
+          <!--<button class="secondary-button" routerLink="/tasks">View Tasks</button>-->
+        </div>
+      </div>
+ 
+      <div class="dashboard-card">
+        <div class="card-header">
+          <div class="card-icon">R</div>
+          <div>
+            <h2 class="card-title">Reports</h2>
+            <p class="card-subtitle">Generate and view reports</p>
+          </div>
+        </div>
+        <div class="card-actions">
+          <button class="primary-button" routerLink="/report">Generate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+ 
+ 
